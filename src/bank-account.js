@@ -32,7 +32,7 @@ export class BankAccount
 
   deposit(monto) 
   {
-    if(this.activo)
+    if(this.activo && monto > 0)
     {
       this.monto += monto;
     } 
@@ -44,7 +44,7 @@ export class BankAccount
 
   withdraw() 
   {
-    if (!this.activo || monto > this.dinero ) 
+    if (!this.activo || monto > this.dinero || monto < 0) 
     {
       throw new ValueError();
     }
