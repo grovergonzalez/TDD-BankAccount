@@ -42,9 +42,9 @@ export class BankAccount
     }
   }
 
-  withdraw() 
+  withdraw(monto) 
   {
-    if (!this.activo || monto > this.dinero || monto < 0) 
+    if (!this.activo || monto > this.monto || monto < 0) 
     {
       throw new ValueError();
     }
@@ -58,5 +58,11 @@ export class BankAccount
       throw new ValueError();
     }
     return this.monto;
+  }
+}
+
+export class ValueError extends Error {
+  constructor() {
+    super("Bank account error");
   }
 }
