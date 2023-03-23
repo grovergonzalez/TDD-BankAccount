@@ -28,8 +28,13 @@ export class BankAccount
 
   deposit(monto) 
   {
-    if(this.activo){
+    if(this.activo)
+    {
       this.monto += monto;
+    } 
+    else
+    {
+      throw new ValueError();
     }
   }
 
