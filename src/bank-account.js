@@ -40,10 +40,11 @@ export class BankAccount
 
   withdraw() 
   {
-    if (this.activo || monto < this.dinero || monto > 0) 
+    if (!this.activo || monto > this.dinero || monto < 0) 
     {
-      this.monto -= monto;
+      throw new ValueError();
     }
+    this.monto -= monto;
   }
 
   get balance() 
