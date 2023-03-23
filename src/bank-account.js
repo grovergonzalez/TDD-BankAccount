@@ -1,12 +1,15 @@
 
-export class BankAccount {
+export class BankAccount 
+{
 
-  constructor(monto) {
+  constructor(monto) 
+  {
     this.activo = false;
     this.monto = monto;
   }
 
-  open() {
+  open() 
+  {
     if (this.activo) 
     {
       throw new ValueError();
@@ -15,25 +18,35 @@ export class BankAccount {
     this.monto = 0;
   }
 
-  close() {
-    //throw new Error("Remove this statement and implement this function");
+  close() 
+  {
+    if (this.activo)
+    {
+      this.activo = false;
+    }
   }
 
-  deposit(monto) {
+  deposit(monto) 
+  {
     if(this.activo){
       this.monto += monto;
     }
   }
 
-  withdraw() {
+  withdraw() 
+  {
     if (this.activo || monto < this.dinero || monto > 0) 
     {
       this.monto -= monto;
     }
   }
 
-  get balance() {
-   // throw new Error("Remove this statement and implement this function");
+  get balance() 
+  {
+    if(!this.activo)
+    {
+      throw new ValueError();
+    }
     return this.monto;
   }
 }
