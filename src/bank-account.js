@@ -24,6 +24,10 @@ export class BankAccount
     {
       this.activo = false;
     }
+    else
+    {
+      throw new ValueError();
+    }
   }
 
   deposit(monto) 
